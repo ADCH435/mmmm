@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petition #NoFoodWaste</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background: url('https://images.unsplash.com/photo-1606787363070-88b52958d7c1') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            position: relative;
+        }
+
+        /* Overlay for improved text readability */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        header {
+            background-color: rgba(255, 69, 0, 0.8);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            letter-spacing: 2px;
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        section {
+            margin: 30px 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        h2 {
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            color: #FF4500;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        ul li i {
+            color: #FF4500;
+            margin-right: 10px;
+        }
+
+        strong {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+
+        input, textarea {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 1.1em;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            transition: border 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #FF4500;
+            outline: none;
+        }
+
+        button {
+            padding: 12px;
+            background-color: #FF4500;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #e63900;
+            transform: translateY(-3px);
+            animation: bounce 0.5s;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1.1em;
+        }
+
+        a {
+            color: #FF4500;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Progress bars for signatures */
+        .progress-bar {
+            width: 100%;
+            background-color: #f3f3f3;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .progress {
+            background-color: #FF4500;
+            height: 25px;
+            border-radius: 20px;
+            width: 75%; /* Example of 75% of signatures obtained */
+            line-height: 25px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            transition: width 1s ease-in-out;
+        }
+
+        /* Statistics section */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 30%;
+            transition: transform 0.3s;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-item i {
+            font-size: 3em;
+            margin-bottom: 15px;
+            color: #FF4500;
+        }
+
+        .stat-item p {
+            font-size: 1.4em;
+            font-weight: bold;
+        }
+
+        .call-to-action {
+            text-align: center;
+            margin: 40px 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .call-to-action h2 {
+            font-size: 2em;
+            color: #FF4500;
+            margin-bottom: 15px;
+        }
+
+        .call-to-action p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        /* Styles for awareness images */
+        .sensitivity-images {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .sensitivity-images img {
+            width: 30%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .sensitivity-images img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>#NoFoodWaste</h1>
+        <p>Join our global movement to reduce food waste and protect our planet!</p>
+    </header>
+
+    <section id="introduction">
+        <h2>Why Sign the #NoFoodWaste Petition?</h2>
+        <p>Every year, millions of tons of food are thrown away while millions of people suffer from hunger. The #NoFoodWaste petition aims to reduce food waste through more responsible policies and concrete actions.</p>
+    </section>
+
+    <!-- Adding visual statistics -->
+    <section class="stats">
+        <div class="stat-item">
+            <i class="fas fa-trash-alt"></i>
+            <p><strong>1.3 billion</strong> tons of food wasted each year</p>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-hamburger"></i>
+            <p><strong>25%</strong> of global calories are lost each year</p>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-globe"></i>
+            <p><strong>8%</strong> of greenhouse gas emissions come from food waste</p>
+        </div>
+    </section>
+
+    <!-- Actions we propose -->
+    <section id="actions">
+        <h2>Our Proposed Actions</h2>
+        <ul>
+            <li><i class="fas fa-recycle"></i> Implement better food distribution systems</li>
+            <li><i class="fas fa-users"></i> Raise awareness about food waste</li>
+            <li><i class="fas fa-cogs"></i> Promote the circular economy to reuse food surpluses</li>
+        </ul>
+    </section>
+
+    <section id="signatures">
+        <h2>Sign the Petition Now</h2>
+
+        <!-- Signature progress bar -->
+        <div class="progress-bar">
+            <div class="progress">75%</div> <!-- Example of 75% of signatures obtained -->
+        </div>
+
+        <!-- Signature form -->
+        <form id="signature-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required placeholder="Enter your name">
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" required placeholder="Enter your email address">
+
+            <button type="submit">Sign the Petition</button>
+        </form>
+    </section>
+
+    <div class="call-to-action">
+        <h2>Act Now!</h2>
+        <p>Don't stay out of this fight. Every signature counts and can make a difference. Join us in our quest to reduce food waste and protect our planet for future generations.</p>
+    </div>
+
+    <footer>
+        <p>Thank you for supporting the #NoFoodWaste cause!</p>
+        <p><a href="#">Learn more about our initiatives</a></p>
+    </footer>
+
+    <script>
+        // Form submission handling
+        document.getElementById('signature-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevents the page from reloading
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            // Logic to process the signature here (e.g., send to a server)
+            alert(`Thank you, ${name}, for your signature! We have recorded your email address: ${email}`);
+            document.getElementById('signature-form').reset(); // Resets the form
+        });
+    </script>
+</body>
+</html>
